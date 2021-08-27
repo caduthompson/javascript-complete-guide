@@ -3,11 +3,10 @@ let currentResult = defaultResult;
 
 function add(num1, num2) {
   const result = num1 + num2;
-  return result;
+  return;
+ // alert('Hi there!');
+ // the statement 'return' is the end of block command, so nothing happen after this.
 }  
-
-// Cannot acess local variable "result" outside de block scope
-// alert(result); 
 
 currentResult = add(1, 2);
 
