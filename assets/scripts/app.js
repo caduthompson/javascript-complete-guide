@@ -14,3 +14,4 @@
 */
 
 let currentResult = 0;
+
