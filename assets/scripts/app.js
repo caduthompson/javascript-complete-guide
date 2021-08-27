@@ -1,15 +1,56 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
-function add(num1, num2) {
-  const result = num1 + num2;
-  return;
- // alert('Hi there!');
- // the statement 'return' is the end of block command, so nothing happen after this.
+// Get input from input field
+function getUserNumberInput() {
+  return parseInt(usrInput.value);
+}
+
+// Generates and writes calculation log
+function createAndWriteOutPut(operator, resultBeforeCalc, calcNumber) {
+  const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
+  outputResult(currentResult, calcDescription);
+}
+
+function add() {
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult += enteredNumber;
+  createAndWriteOutPut('+', initialResult, enteredNumber);
+  const logEntry = {
+    operation: 'ADD',
+    prevResult: initialResult,
+    number: enteredNumber,
+    result: currentResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntry.operation);
+  console.log(logEntries);
 }  
 
-currentResult = add(1, 2);
+function subtract() {
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult -= enteredNumber;
+  createAndWriteOutPut('-', initialResult, enteredNumber);
+}  
 
-let calculationDescription = `(${defaultResult} + 10) * 3 / 2 - 1`;
+function multiply() {
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult *= enteredNumber;
+  createAndWriteOutPut('*', initialResult, enteredNumber);
+}  
 
-outputResult(currentResult, calculationDescription);
+function divide() {
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult /= enteredNumber;
+  createAndWriteOutPut('/', initialResult, enteredNumber);
+}  
+
+addBtn.addEventListener('click', add);
+subtractBtn.addEventListener('click', subtract);
+multiplyBtn.addEventListener('click', multiply);
+divideBtn.addEventListener('click', divide);
