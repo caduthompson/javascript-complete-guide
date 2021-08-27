@@ -6,10 +6,7 @@ function add(num1, num2) {
   return result;
 }  
 
-add(1 , 2);
-add(5 , 5);
-
-currentResult = (currentResult + 10) * 3 / 2 - 1;
+currentResult = add(1, 2);
 
 let calculationDescription = `(${defaultResult} + 10) * 3 / 2 - 1`;
 
